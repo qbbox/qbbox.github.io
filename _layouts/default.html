@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{ page.title }}</title>
+<meta name="keywords" content="涛涛的小世界——互相学习，共同提高" />
+<meta name="description" content="涛涛的小世界——互相学习，共同提高" />
+<link href="/templatemo_style.css" rel="stylesheet" type="text/css" />
+<!--jQuery-->
+<script type='text/javascript' src='/js/jquery.min.js'></script>
+<script type='text/javascript' src='/js/jquery.scrollTo-min.js'></script>
+<script type='text/javascript' src='/js/jquery.localscroll-min.js'></script>
+<!--高亮插件-->
+<link href="/js/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" charset="utf-8" src="/js/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<script type="text/javascript" charset="utf-8" src='/js/ueditor/ueditor.config.js'></script>
+<script type="text/javascript" charset="utf-8" src='/js/ueditor/ueditor.all.min.js'> </script>
+<script type="text/javascript" charset="utf-8" src='/js/ueditor/lang/zh-cn/zh-cn.js'></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $.localScroll();
+});
+</script> 
+<style type="text/css">
+.clear {
+    clear: both;
+}
+</style>
+</head>
+
+<body>
+<span id="top"></span>
+<div id="templatemo_body_wrapper">
+    <div id="templatemo_wrapper">
+        <div id="templatemo_header">
+            <div id="site_title">
+                <h1><a href="http://qbbox.github.com">涛涛的小世界</a></h1>
+            </div>
+            <div id="templatemo_menu">
+                <ul>
+                    <li><a href="http://qbbox.github.com">首页</a></li>
+                    <li><a href="http://qbbox.github.com/categories.html">分类</a></li>
+                    <li><a href="http://qbbox.github.com/aboutme.html">关于</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="templatemo_main">
+            <div id="home" class="content_top"></div>
+            <div class="content_box">
+                <div class="content_title content_ctf">
+                    <h2>{{ page.title }}</h2></div>
+                <div class="content">
+                    {{ content }}
+                </div>
+                <div class="content_bottom content_cb"><a href="#templatemo_header" class="gototop">返回顶部</a></div>
+            </div> 
+        </div>
+
+        <div id="templatemo_footer">
+            Copyright © 2014 涛涛<br /> Designed by <a href="http://www.templatemo.com" target="_parent">Free CSS Templates</a>
+            <div class="cleaner"></div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+    //实例化编辑器
+    UE.getEditor('editor');
+    //代码高亮
+    SyntaxHighlighter.all()
+</script>
+</html>

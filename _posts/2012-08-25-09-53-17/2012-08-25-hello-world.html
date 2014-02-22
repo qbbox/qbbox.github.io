@@ -1,0 +1,100 @@
+---
+layout: default
+title: 《高等数学》（092）——利用Matlab求解曲线积分与曲面积分
+category: 高等数学
+---
+<p>发布于 {{ page.date | date: "%Y-%m-%d" }}</p>
+<p>
+    <span style="color: rgb(255, 0, 0);"><strong><span style="font-family: 宋体, SimSun;">今天我们继续学习《高等数学》，下面我们开始吧：</span></strong></span>
+</p>
+<p>
+    <strong style="color: rgb(255, 0, 0);"><span style="font-family: 宋体, SimSun;">用 Matlab 求解曲线积分与曲面积分，本质上是求解定积分。我们以之前的例子为例：</span></strong><br/>
+</p>
+<p>
+    <span style="font-family: 宋体, SimSun;"><strong style="color: rgb(255, 0, 0); white-space: normal;"><span style="font-family: 宋体, SimSun;"><img src="http://localhost/ueditor1_3_6-utf8-php/php/upload1/20140222/1393055055642464.jpg" title="Snap1162.jpg"/></span></strong></span><br/>
+</p>
+<p>
+    <strong style="color: rgb(255, 0, 0);"><span style="font-family: 宋体, SimSun;">Matlab 代码如下所示：</span></strong><br/>
+</p>
+<pre class="brush:html;toolbar:false">syms t;
+x = t;
+y = t^2;
+f = sqrt(y);
+dx = diff(x, t);
+dy = diff(y, t);
+ds = sqrt(dx^2 + dy^2);
+r = int(f*ds, t, 0, 1);
+eval(r)     %将符号结果转换为数值结果</pre>
+<p>
+    <span style="color: rgb(255, 0, 0);"><strong><span style="font-family: 宋体, SimSun;">运行结果如下所示：</span></strong></span><br/><span style="font-family: 宋体, SimSun;"></span>
+</p>
+<p>
+    <span style="font-family: 宋体, SimSun;"><img src="http://localhost/ueditor1_3_6-utf8-php/php/upload1/20140222/1393055184139625.jpg" title="Snap218.jpg"/></span><br/>
+</p>
+<p>
+    <strong style="color: rgb(255, 0, 0);"><span style="font-family: 宋体, SimSun;">下面是求曲面积分的例子：</span></strong><br/>
+</p>
+<p>
+    <span style="font-family: 宋体, SimSun;"></span>
+</p>
+<p>
+    <img src="http://localhost/ueditor1_3_6-utf8-php/php/upload1/20140222/1393055137879913.jpg" style="float:none;" title="Snap948.jpg"/>
+</p>
+<p>
+    <img src="http://localhost/ueditor1_3_6-utf8-php/php/upload1/20140222/1393055137126242.jpg" style="float:none;" title="Snap949.jpg"/>
+</p>
+<p>
+    <span style="font-family: 宋体, SimSun;"></span><br/>
+</p>
+<p>
+    <strong style="color: rgb(255, 0, 0);"><span style="font-family: 宋体, SimSun;">Matlab 代码如下所示：</span></strong><br/>
+</p>
+<pre class="brush:html;toolbar:false">syms x y;
+z = 1/2 * (x^2 + y^2);
+dzdx = diff(z, x);
+dzdy = diff(z, y);
+dS = sqrt(1 + dzdx^2 + dzdy^2);
+f = z * dS;
+
+%将变限积分转化为定限积分
+syms v;
+g1y = -sqrt(2 - y^2);
+g2y = sqrt(2 - y^2);
+f = f * (g2y - g1y);
+f = subs(f, x, (1 - v) * g1y + v * g2y);
+
+%计算结果
+dblquad(inline(f), 0, 1, -sqrt(2), sqrt(2))</pre>
+<p>
+    <strong style="color: rgb(255, 0, 0);"><span style="font-family: 宋体, SimSun;">运行结果如下所示：</span></strong><br/>
+</p>
+<p>
+    <span style="font-family: 宋体, SimSun;"><img src="http://localhost/ueditor1_3_6-utf8-php/php/upload1/20140222/1393055233279448.jpg" title="Snap313.jpg"/></span><br/>
+</p>
+<p>
+    <strong style="color: rgb(255, 0, 0);"><span style="font-family: 宋体, SimSun;">由于我们计算的是变限积分，因此用 http://www.qbbox.com/blog/archives/13476 中介绍的方法先将变限积分转化为定限积分，然后再计算。下面是另一个曲面积分的例子：</span></strong><br/>
+</p>
+<p>
+    <span style="font-family: 宋体, SimSun;"><img src="http://localhost/ueditor1_3_6-utf8-php/php/upload1/20140222/1393055248366243.jpg" title="dn_152.jpg"/></span><br/>
+</p>
+<p>
+    <strong style="color: rgb(255, 0, 0);"><span style="font-family: 宋体, SimSun;">Matlab 代码如下所示：</span></strong><br/>
+</p>
+<p>
+    <span style="font-family: 宋体, SimSun;"><br/></span>
+</p>
+<p>
+    <strong><span style="font-family: 宋体, SimSun; color: rgb(255, 0, 0);">运行结果如下所示：</span></strong><br/>
+</p>
+<p>
+    <span style="font-family: 宋体, SimSun;"><img src="http://localhost/ueditor1_3_6-utf8-php/php/upload1/20140222/1393055262110677.jpg" title="Snap49.jpg"/></span><br/>
+</p>
+<p>
+    <span style="color: rgb(255, 0, 0);"><strong><span style="font-family: 宋体, SimSun;">好了，今天我们就先介绍到这里，我们下次再见吧~~</span></strong></span><br/>
+</p>
+<p>
+    <span style="font-family: 宋体, SimSun;"><br/></span>
+</p>
+<p style="text-align: center;">
+    <span style="color: rgb(0, 112, 192);"><strong><span style="font-family: 宋体, SimSun;">完成！</span></strong></span><br/>
+</p>

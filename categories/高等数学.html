@@ -1,0 +1,18 @@
+---
+layout: default
+title: 高等数学
+---
+<table width = "100%">
+    {% for category in site.categories %}
+    {% if {{ category | first }} == "高等数学" %}
+<tr>
+<ul>
+        {% for post in category.last %}
+            <td><li><a href="{{ post.url }}">{{ post.title }}</a></li></td>
+            <td align="right">{{ post.date | date: "%Y-%m-%d" }}</td>
+        {% endfor %}
+</ul>
+</tr>
+    {% endif %}
+    {% endfor %}
+</table>

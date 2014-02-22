@@ -1,0 +1,14 @@
+---
+layout: default
+title: 涛涛的小世界
+---
+<table width = "100%">
+　　{% for post in site.posts %}
+<tr>
+<ul>
+        <td><li><a href="http://ht916.github.com{{ post.url }}">{{ post.title }}</a></li></td>
+        <td align="right">{{ post.date | date: "%Y-%m-%d" }}</td>
+</ul>
+</tr>
+    {% endfor %}
+</table>
